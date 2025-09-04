@@ -1,5 +1,7 @@
 package com.projetolp;
 
+//mvn clean compile exec:java
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -36,12 +38,19 @@ public class Main extends Application {
 
         //Atributos processam dados
         Button b = new Button("Enviar");    
-        b.setOnAction(e -> {            
+        b.setOnAction(e -> {       
+            resultado.setText("");     
             String texto1 = nome.getText();
-            int texto2 =    Integer.parseInt(num.getText());
-            User user1 = new User();
-            String msg = user1.Teste(texto1, texto2);
-            resultado.setText(msg);
+            String texto2 = num.getText();
+            try {
+                int valor = Integer.parseInt(texto2); // tenta converter para inteiro
+                User user1 = new User();
+                String msg = user1.Teste(texto1, valor);
+                resultado.setText(msg);
+            } catch (NumberFormatException ex) {
+                // caso não seja inteiro, mostra alerta
+                resultado.setText("Digite Inteiro");
+            }            
         });
 
         HBox box = new HBox(5);

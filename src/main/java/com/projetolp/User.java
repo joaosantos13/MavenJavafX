@@ -3,9 +3,9 @@ package com.projetolp;
 
 public class User {
     private String nome = "";
-    private int num = 0;
+    private int  num = 0;
 
-    public User(String nome, int num) {
+    public User(String nome, int  num) {
         this.nome = nome;
         this.num = num;
     }
@@ -21,12 +21,15 @@ public class User {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public int getNum() {
+
+    public int  getNum() {
         return num;
     }
+
     public void setNum(int num) {
         this.num = num;
     }
+    
 
     public String Teste(String nome, int num)
     {
@@ -34,11 +37,13 @@ public class User {
         if(num <= 0)
         {
             qntd = "";
-        }
-        for(int i = 1; i < num; i++)
+        } 
+
+         for(int i = 1; i < num; i++)
         {
             qntd = qntd + nome;
-        }
+         }
+        
         return qntd;
     }
 }
